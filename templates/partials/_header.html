@@ -1,0 +1,57 @@
+{% load static %}
+
+ <!-- Header -->
+ <header class="">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'index'  %}"><h2>Stand Blog<em>.</em></h2></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+             <li {% if '/' == request.path %}
+                    class="nav-item active"
+                  {% else %}
+                    class="nav-item"
+                  {% endif %} 
+              >  
+              <a class="nav-link" href="{% url 'index' %}">Home </a>
+            </li> 
+            <li 
+            {% if 'about' in request.path %}
+              class="nav-item active"
+            {% else %}
+              class="nav-item"
+            {% endif %}
+            >
+              <a class="nav-link" href="{% url 'about' %}">About</a>
+            </li>
+            <li {% if 'entire' in request.path %}
+              class="nav-item active"
+            {% else %}
+              class="nav-item"
+            {% endif %} 
+            >
+              <a class="nav-link" href="{% url 'blogentires' %}">Blog Entries</a>
+            <li {% if 'post' in request.path %}
+              class="nav-item active"
+            {% else %}
+              class="nav-item"
+            {% endif %} 
+            >  
+              <a class="nav-link" href="{% url 'blogdetails' %}">Post Details</a>
+            </li>
+            <li {% if 'contact' in request.path %}
+                    class="nav-item active"
+                  {% else %}
+                    class="nav-item"
+                  {% endif %} 
+              >  
+              <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
