@@ -27,20 +27,20 @@
             >
               <a class="nav-link" href="{% url 'about' %}">About</a>
             </li>
-            <li {% if 'entire' in request.path %}
+            <li {% if 'Blog_Entries' in request.path %}
               class="nav-item active"
             {% else %}
               class="nav-item"
             {% endif %} 
             >
-              <a class="nav-link" href="{% url 'blogentires' %}">Blog Entries</a>
-            <li {% if 'post' in request.path %}
+              <a class="nav-link" href="{% url 'Blog_Entries' %}">Blog Entries</a>
+            <li {% if 'Post_Details' in request.path %}
               class="nav-item active"
             {% else %}
               class="nav-item"
             {% endif %} 
             >  
-              <a class="nav-link" href="{% url 'blogdetails' %}">Post Details</a>
+              <a class="nav-link" href="{% url 'Post_Details' %}">Post Details</a>
             </li>
             <li {% if 'contact' in request.path %}
                     class="nav-item active"
