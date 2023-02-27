@@ -19,7 +19,21 @@
       
       <!-- Banner Ends Here -->
   
-  
+   <!-- Breadcrumb -->
+   <section id="bc" class="mt-3">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'index' %}">
+              <i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="breadcrumb-item active"> contact</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
       <section class="contact-us">
         <div class="container">
           <div class="row">
@@ -34,6 +48,7 @@
                       </div>
                       <div class="content">
                         <form id="contact" action="" method="post">
+                          {% csrf_token %}
                           <div class="row">
                             <div class="col-md-6 col-sm-12">
                               <fieldset>
@@ -61,6 +76,7 @@
                               </fieldset>
                             </div>
                           </div>
+
                         </form>
                       </div>
                     </div>
