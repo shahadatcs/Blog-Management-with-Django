@@ -34,14 +34,24 @@
             {% endif %} 
             >
               <a class="nav-link" href="{% url 'Blog_Entries' %}">Blog Entries</a>
-            <li {% if 'Post_Details' in request.path %}
-              class="nav-item active"
-            {% else %}
-              class="nav-item"
-            {% endif %} 
-            >  
-              <a class="nav-link" href="{% url 'Post_Details' %}">Post Details</a>
+
+              <li {% if 'login' in request.path %}
+                class="nav-item active" 
+                {% else %}
+                class="nav-item"
+                {% endif %}
+                >  
+                <a class="nav-link" href="{% url 'login' %}">Login</a>
+              </li>
+            <li {% if 'register' in request.path %}
+                   class="nav-item active" 
+                {% else %}
+                  class="nav-item"
+                  {% endif %}
+                >  
+              <a class="nav-link" href="{% url 'register' %}"> Register</a>
             </li>
+
             <li {% if 'contact' in request.path %}
                     class="nav-item active"
                   {% else %}

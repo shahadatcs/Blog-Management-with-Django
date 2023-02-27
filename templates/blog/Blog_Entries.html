@@ -26,12 +26,12 @@
             <div class="col-lg-8">
               <div class="all-blog-posts">
                 <div class="row">
-                  {% if post %}
+               {% if post %}
                 {% for post  in post %}
                   <div class="col-lg-6">
                     <div class="blog-post">
                       <div class="blog-thumb">
-                        <img src="{{ post.photo.url }}" alt="">
+                        <img src="{{ post.blog_photo.url }}" alt="">
                       </div>
                       <div class="down-content">
                         <span>{{ post.tag }}</span>
@@ -61,22 +61,48 @@
                    <div class="col-lg-12">
                      <h1>There is no block Entries</h1>
                    </div>
-                  {% endif %}
+                  {% endif %} 
 
-
-                  <div class="col-lg-12">
-                    <ul class="page-numbers">
-                      <li><a href="#">1</a></li>
-                      <li class="active"><a href="#">2</a></li>
-                      <li><a href="#">3</a></li>
-                      <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-                    </ul>
-                  </div>
+                    <div class="col-md-12">
+                      {% if post.has_other_pages %}
+                        <ul class="pagination">
+                          {% if post.has_previous %}
+                            <li class="page-item">
+                              <a href="?page={{post.previous_page_number}}" class="page-link">&laquo;</a>
+                            </li>
+                          {% else %}
+                            <li class="page-item disabled">
+                              <a class="page-link">&laquo;</a>
+                            </li>
+                          {% endif %}
+                          {% for i in post.paginator.page_range %}
+                            {% if listings.number == i %}
+                              <li class="page-item active">
+                                <a class="page-link">{{i}}</a>
+                              </li>
+                            {% else %}
+                              <li class="page-item">
+                                <a href="?page={{i}}" class="page-link">{{i}}</a>
+                              </li>
+                            {% endif %}
+                          {% endfor %}
+                          {% if post.has_next %}
+                            <li class="page-item">
+                              <a href="?page={{post.next_page_number}}" class="page-link">&raquo;</a>
+                            </li>
+                          {% else %}
+                            <li class="page-item disabled">
+                              <a class="page-link">&raquo;</a>
+                            </li>
+                          {% endif %}
+                        </ul>
+                      {% endif %}
+                    </div>
 
                 </div>
               </div>
             </div>
-            {% include 'partials/_sidebar.html' %}
+            {% block sidebar %} {% include 'partials/_sidebar.html' %} {% endblock sidebar %}
           </div>
         </div>
       </section>

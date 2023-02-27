@@ -13,7 +13,9 @@ class Post(models.Model):
     content = models.TextField()
     update_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now=True)
-    photo = models.ImageField(upload_to='photos/%Y/%m/%d')
+    blog_photo = models.ImageField(upload_to='photos/%Y/%m/%d')
+    banner_photo = models.ImageField(upload_to='photos/%Y/%m/%d')
+
     status = models.IntegerField(choices=STATUS, default=0)
     
     class Meta:
