@@ -14,7 +14,7 @@
             </div>
             <div class="card-body">
               <!-- Alerts -->
-              
+              {% include 'partials/_alerts.html' %}
 
                 <form action="{% url 'login' %}" method="POST">
                   {% csrf_token %}

@@ -17,7 +17,7 @@ def contact(request):
       has_contacted = Contact.objects.all().filter(user_id=user_id)
       if has_contacted:
         messages.error(request, 'You have already send message')
-    contact = Contact(name=name, email=email, subject=subject, message=message, user_id=user_id )
+    contact = Contact(name=name, email=email, subject=subject, message=message)
     contact.save()
 
     # Send email
